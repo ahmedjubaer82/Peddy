@@ -92,6 +92,15 @@ const displayCards = (pets) => {
   }
 };
 
+// Function to sort pets by price in descending order
+const sortByPriceDescending = () => {
+    const sortedPets = pets.slice().sort((a, b) => b.price - a.price);
+    displayCards(sortedPets);
+  };
+  
+// Event listener for the Sort button
+ document.getElementById("sort-button").addEventListener("click", sortByPriceDescending);
+
 // Fetch and display pets when the page loads
 document.addEventListener('DOMContentLoaded', async () => {
     pets = await fetchPets();
