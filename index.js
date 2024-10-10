@@ -5,7 +5,28 @@ const loadBtnCategories = () => {
       .catch((error) => console.log(error));
   };
 
-  const displayBtnCategories = (categories) => {
+const loadCategoryImage = (category) => {
+    const cardContainer = document.getElementById("card-container");
+    cardContainer.innerHTML = ""; 
+  
+    const spinner = document.getElementById("spinner");
+    spinner.classList.remove("hidden");
+  
+    setTimeout(() => {
+      fetch(`https://openapi.programming-hero.com/api/peddy/category/${category}`)
+        .then((res) => res.json())
+        .then((data) => {
+          spinner.classList.add("hidden"); 
+          displayCards(data.data); 
+        })
+        .catch((error) => {
+          console.log(error);
+          spinner.classList.add("hidden");
+        });
+    }, 2000); 
+};
+
+const displayBtnCategories = (categories) => {
 
     const categoryContainer = document.getElementById("btn-container");
    
@@ -30,7 +51,7 @@ const loadBtnCategories = () => {
       
       categoryContainer.append(buttonContainer);
     }
-  };
+};
 
 const loadPets = () => {
     fetch("https://openapi.programming-hero.com/api/peddy/pets")
@@ -48,7 +69,7 @@ const displayCards = (pets) => {
     cardContainer.classList.remove("grid");
     cardContainer.innerHTML = ` 
     <div class="text-center bg-[#ececec] m-5 rounded-lg p-5">
-      <img class="mx-auto" src="images/images/error.webp"/>
+      <img class="mx-auto" src="./images/error.webp"/>
       <h3 class="text-[32px] font-bold text-[#131313]">No Information Available</h3>
       <p>"We appreciate your interest in adopting a pet! Unfortunately, we currently have no information available. Please check back regularly for updates on available animals, adoption events, and resources to help you find your perfect furry companion. Thank you!"</p>
     </div>`;
@@ -108,7 +129,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
   
   // Fetching pets from the API
-  async function fetchPets() {
+async function fetchPets() {
     try {
       const response = await fetch('https://openapi.programming-hero.com/api/peddy/pets');
       const data = await response.json();
@@ -116,10 +137,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (error) {
       console.error('Error fetching pets:', error);
     }
-  }
+}
   
   // open modal
-  const openModal = (petId) => {
+const openModal = (petId) => {
     fetch(`https://openapi.programming-hero.com/api/peddy/pets`)
       .then((res) => res.json())
       .then((data) => {
@@ -150,9 +171,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById("shared-modal").showModal();
       })
       .catch((error) => console.log(error));
-  };
+};
   
-  const openCounterModal = () => {
+const openCounterModal = () => {
     document.getElementById("congrats-image").src = "./images/images/congrats.png";
     document.getElementById("counter-h1").textContent = "Congratulations";
     document.getElementById("counter-desc").textContent = "Your adoption request was successful!";
@@ -160,10 +181,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     countDown();
     setTimeout(() => {
       document.getElementById("counter-modal").close();  
-    }, 3000);
-  };
+    }, 2000);
+};
   
-  function countDown() {
+function countDown() {
     let countdown = 3;
   
     document.getElementById("counter-count").innerText = countdown;
@@ -177,9 +198,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById("counter-count").innerText = "";
       }
     }, 1000);
-  }
+}
   
-  function handleAdd(image) {
+function handleAdd(image) {
     const likedPetsGrid = document.getElementById("liked-pets-grid");
     const h2 = document.getElementById("h2");
     h2.classList.add("hidden");
@@ -189,7 +210,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       `;
   
     likedPetsGrid.appendChild(div);
-  }
+}
   
-  loadBtnCategories();
-  loadPets();
+loadBtnCategories();
+loadPets();
