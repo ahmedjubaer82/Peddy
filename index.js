@@ -23,35 +23,36 @@ const loadCategoryImage = (category) => {
           console.log(error);
           spinner.classList.add("hidden");
         });
-    }, 2000); 
+    }, 1500); 
 };
 
 const displayBtnCategories = (categories) => {
 
     const categoryContainer = document.getElementById("btn-container");
-   
+  
     for (const category of categories) {
       const buttonContainer = document.createElement("div");
   
       buttonContainer.innerHTML = `
-       <div class="flex sm:flex-row-1 md:flex-row-2 justify-evenly">
-        <button id="btn-${category.id}" onclick="loadCategoryImage('${category.category}')" class="category-btn  flex items-center justify-center gap-5 w-[200px] h-[70px] bg-white border border-gray-300 rounded-lg">
-          <img src=${category.category_icon} class="w-[40px]">
-          <p class="text-[25px]">${category.category}</p> 
-        </button>
-       </div>
+        <div class="flex sm:flex-row-1 md:flex-row-2 justify-evenly">
+          <button id="btn-${category.id}" onclick="loadCategoryImage('${category.category}')" class="category-btn flex items-center justify-center gap-5 w-[200px] h-[70px] bg-white hover:bg-teal-700 hover:text-white active:bg-teal-700-500 active:text-white transition-colors duration-300 border border-gray-300 rounded-lg">
+            <img src=${category.category_icon} class="w-[40px]">
+            <p class="text-[25px]">${category.category}</p> 
+          </button>
+        </div>
       `;
   
       const button = buttonContainer.querySelector(`#btn-${category.id}`);
+  
       button.addEventListener("click", function () {
         const allButtons = document.querySelectorAll(".category-btn");
-        allButtons.forEach((btn) => btn.classList.remove("active"))
-        this.classList.add("active");      
+        allButtons.forEach((btn) => btn.classList.remove("active"));
+        this.classList.add("active");
       });
-      
+  
       categoryContainer.append(buttonContainer);
     }
-};
+  };  
 
 const loadPets = () => {
     fetch("https://openapi.programming-hero.com/api/peddy/pets")
@@ -104,9 +105,9 @@ const displayCards = (pets) => {
       </div>
       <hr class="my-3">
       <div class="flex justify-between">
-        <button onclick="handleAdd('${pet.image}')" class="bg-[#FFFFFF] border border-1 flex justify-center rounded-lg items-center w-[56px] h-[38px]"><i class="fa-solid fa-thumbs-up" style="color: #0f766e;"></i></button>
-        <button id="adopt-button" class=" w-[92px] h-[40px] rounded-lg border border-1 text-teal-700 flex justify-center items-center font-bold text-[18px]" onclick="openCounterModal()">Adopt</button>
-        <button class=" w-[92px] h-[40px] rounded-lg border border-1 text-teal-700 flex justify-center items-center font-bold text-[18px]" onclick="openModal(${pet.petId})">Details</button>
+        <button onclick="handleAdd('${pet.image}')" class="bg-white hover:bg-teal-100 hover:text-white hover:border-teal-700 hover:border-solid hover:border-2 transition-colors duration-300 border border-1 flex justify-center rounded-lg items-center w-[56px] h-[38px]"><i class="fa-solid fa-thumbs-up" style="color: #0f766e;"></i></button>
+        <button id="adopt-button" class=" w-[92px] h-[40px] rounded-lg border border-1 text-teal-700 hover:bg-teal-700 hover:text-white  transition-colors duration-300 flex justify-center items-center font-bold text-[18px]" onclick="openCounterModal()">Adopt</button>
+        <button class=" w-[92px] h-[40px] rounded-lg border border-1 text-teal-700 hover:bg-teal-700 hover:text-white transition-colors duration-300 flex justify-center items-center font-bold text-[18px]" onclick="openModal(${pet.petId})">Details</button>
       </div>
     `;
     cardContainer.appendChild(card);
@@ -174,7 +175,7 @@ const openModal = (petId) => {
 };
   
 const openCounterModal = () => {
-    document.getElementById("congrats-image").src = "./images/images/congrats.png";
+    document.getElementById("congrats-image").src = "./images/congrats.png";
     document.getElementById("counter-h1").textContent = "Congratulations";
     document.getElementById("counter-desc").textContent = "Your adoption request was successful!";
     document.getElementById("counter-modal").showModal();

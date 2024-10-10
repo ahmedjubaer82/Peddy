@@ -22,6 +22,11 @@
         .font-style {
             font-family: "Lato", sans-serif;
         }
+
+        .category-btn.active {
+        background-color: #0f766e;
+        color: white;
+        }
     </style>
 
 </head>
@@ -58,7 +63,7 @@
             <h2 class="text-2xl font-bold mb-4 text-slate-500">Bringing Families Together ❤️‍🔥</h2>
             <h2 class="mx-auto font-bold lg:text-7xl lg:max-w-3xl text-4xl text-black ">Your Path to Adoption Starts Here</h2>
             <p class="mx-auto lg:max-w-3xl text-[16px] text-black mt-5 ">We are committed to helping you find the perfect pet that fits your family. Browse through our wide selection of pets, each waiting for their forever home. Start your adoption journey today and make a new friend for life!</p>
-            <button class="rounded-xl text-white bg-teal-700 w-[163px] h-[56px] text-[20px] font-bold mt-8" onclick="window.location.href='#main-container'">Show more</button>
+            <button class="rounded-xl text-white bg-teal-700 border-teal-700 border-solid border-2 hover:bg-teal-100 hover:text-teal-700 transition-colors duration-300 w-[163px] h-[56px] text-[20px] font-bold mt-8" onclick="window.location.href='#main-container'">Show more</button>
             <div class=" flex mt-12 justify-center items-center mb-5">
                 <img class=" w-[600px]" src="./images/pet.webp" alt="">
             </div>
@@ -81,7 +86,7 @@
     <!-- sort button section -->
     <section class="flex justify-between  w-11/12 mx-auto mt-8">
         <h1 class="text-2xl font-bold text-black">Best deal for you</h1>
-        <button id="sort-button" class="w-[178px] h-[56px] rounded-xl font-bold text-[20px] text-white bg-teal-700">Sort by price</button>
+        <button id="sort-button" class="w-[178px] h-[56px] rounded-xl font-bold text-[20px] text-white bg-teal-700 border-teal-700 border-solid border-2 hover:bg-teal-100 hover:text-teal-700 transition-colors duration-300">Sort by price</button>
     </section>
 
     <!-- loading section -->
@@ -91,7 +96,7 @@
         </div>
     </div>
 
-    <!-- card section -->
+    <!-- card container section -->
     <section class="flex flex-col md:flex-row gap-5 my-10 w-11/12 mx-auto">
         <div class="flex-1">
             <div id="card-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
@@ -124,7 +129,7 @@
                 </div>
             </div>
             <div class="modal-action mt-4">
-                <button class="btn hover:bg-blue-500 hover:text-white transition-colors duration-300"
+                <button class="btn hover:bg-teal-700 text-teal-700 font-bold hover:text-white transition-colors duration-300"
                     onclick="document.getElementById('shared-modal').close()">Cancel</button>
             </div>
         </div>
