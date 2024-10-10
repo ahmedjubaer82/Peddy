@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peddy</title>
 
+    <!-- googleapis font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=**Quicksand:wght@500**&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=**Quicksand:wght@500**&display=swap" rel="stylesheet">
 
-<script src="https://kit.fontawesome.com/23ae46fddc.js" crossorigin="anonymous"></script>
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/23ae46fddc.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
 
+    <!-- daisyui -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -23,6 +26,31 @@
 
 </head>
 <body class="font-style">
-    <h1>Peddy</h1>
+
+    <!-- header section -->
+    <header>
+        <section>
+            <nav class="flex w-11/12 mx-auto mt-3 justify-between items-center">
+                <div class="flex gap-2 justify-center items-center">
+                    <img class="w-[30px] h-[30px]" src="./images/logo.webp" alt="">
+                    <p class="text-[32px] text-[#131313]">Peddy</p>
+                </div>
+                <div class="hidden md:block">
+                    <div class=" space-x-8">
+                        <a href="#" class="text-[16px] font-normal text-[#131313]">Home</a>
+                        <a href="#" class="text-[16px] font-normal text-[#131313]">Shop</a>
+                        <a href="#" class="text-[16px] font-normal text-[#131313]">Contact</a>
+                    </div>
+                </div>
+                <div class="hidden w-[7rem] md:block">
+                    <img class="w-[30px] float-right" src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png" alt="">
+                </div>
+                <div class="block md:hidden">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </nav>
+        </section>
+    </header>
+    
 </body>
 </html>
